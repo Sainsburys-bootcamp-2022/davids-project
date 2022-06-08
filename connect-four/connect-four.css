@@ -1,0 +1,34 @@
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, Helvetica, sans-serif;
+    text-align: center;
+}
+
+#board {
+    height: 580px;
+    width: 640px;
+    background-color: blue;
+    border: 2px solid navy;
+    
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tile {
+    height: 70px;
+    width: 70px;
+    margin: 5px;
+
+    background-color: white;
+    border-radius: 60%; 
+    border: 2px solid rgb(13, 13, 204);
+}
+
+.red-counter {
+    background-color: red;
+}
+
+.yellow-counter {
+    background-color: yellow;
+}
+
