@@ -17,7 +17,7 @@ window.onload = function() {    //works with 'this' to load html page. thanks st
     setGame();
 }
 
-function setGame() {
+function setGame() {            //setGame creates the conditions for the game to begin. It uses variables to create a framework which builds an array for the game to progress.
     console.log(setGame, "Game is set")
     boardState = []; //rather than writing out full individual array, boardState contains the initial array
     startPosition = [5, 5, 5, 5, 5, 5, 5]; //Ground level. Bottom of rows and columns for counters.
@@ -41,7 +41,7 @@ function setGame() {
     }
 }
 
-function setCounter() {
+function setCounter() {         //setCounter understands the starting positions of the counter. 
     if (gameEnd) {
         console.log(gameEnd + "Game Over")
         return;
@@ -84,7 +84,7 @@ function setCounter() {
     checkWinner();
 }
 
-function checkWinner() {
+function checkWinner() {         //checkWinner uses for loops and if statements to show possible winning combinations.
 
      for (let r = 0; r < rows; r++) {     // Across
      for (let c = 0; c < columns - 3; c++) {
@@ -129,7 +129,7 @@ function checkWinner() {
 }
 
 
-function setWinner(r, c) {
+function setWinner(r, c) {      //setWinner is called with regard to the checkWinner parameters being met. When checkWinner finds a winner, an if statement is used to understand if the winner is 'red' or 'yellow'
     let winnerName = document.getElementById("winner-name");  //lifted from connectors code for noughts and crosses
     if (boardState[r][c] === playerRed) {
         winnerName.innerText = "The winner is red!";
