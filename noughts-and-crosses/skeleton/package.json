@@ -1,0 +1,11 @@
+{
+  "name": "noughts-and-crosses",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^28.1.1"
+  }
+}
