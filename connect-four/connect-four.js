@@ -23,7 +23,7 @@ function setGame() {            //setGame creates the conditions for the game to
     startPosition = [5, 5, 5, 5, 5, 5, 5]; //Ground level. Bottom of rows and columns for counters.
     //The array just keeps moving 'upwards' towards zero when a turn is taken.
     console.log(startPosition, "Bottom row"); //Reminder of ground level on console
-
+removeElementsByClass("tile");
     for (let r = 0; r < rows; r++) {
         let row = [];
     for (let c = 0; c < columns; c++) {
@@ -38,6 +38,12 @@ function setGame() {            //setGame creates the conditions for the game to
             document.getElementById("board").append(tile); //.append linking the string of board to the html.div (tile)
         }
         boardState.push(row); //.push adding new elements to the end of an array
+    }
+}
+function removeElementsByClass(className) {                 //reset function
+    const elements = document.getElementsByClassName(className);
+    while (elements.length > 0) {
+        elements[0].parentNode.removeChild(elements[0]);
     }
 }
 
@@ -128,7 +134,6 @@ function checkWinner() {         //checkWinner uses for loops and if statements 
     }
 }
 
-
 function setWinner(r, c) {      //setWinner is called with regard to the checkWinner parameters being met. When checkWinner finds a winner, an if statement is used to understand if the winner is 'red' or 'yellow'
     let winnerName = document.getElementById("winner-name");  //lifted from connectors code for noughts and crosses
     if (boardState[r][c] === playerRed) {
@@ -144,30 +149,18 @@ function setWinner(r, c) {      //setWinner is called with regard to the checkWi
     
 }
 
-
-
-
-
 //The reset button was clicked, call the game's reset function then reset the DOM.
-// function resetClick(event) {
-//     resetGame();
-//     // const winnerName = document.getElementById("winner-name");
-//     // winnerName.innerText = "";
-//     // const winnerDisplay = document.getElementById("winner-display");
-//     // winnerDisplay.style.display = "None";
-//     // clearBoard();
-// }
+function resetClick(event) {
+    resetGame();
+    const winnerName = document.getElementById("winner-name");
+    winnerName.innerText = "";
+    const winnerDisplay = document.getElementById("winner-display");
+    winnerDisplay.style.display = "None";
+    clearBoard();
+}
 
-//   const resetButton = document.getElementById("reset-button");
-// resetButton.addEventListener("click", resetClick);
-  
-  
-  
-//   function resetGame() {
-//     console.log("resetGame was called");
-//     boardState = setGame ()}
-
-
+  const resetButton = document.getElementById("reset-button");
+resetButton.addEventListener("click", setGame);
 
 module.exports = {
     setWinner,
