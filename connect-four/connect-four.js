@@ -4,6 +4,9 @@
 // ['3', '0'] ['3', '1'] ['3', '2'] ['3', '3'] ['3', '4'] ['3', '5'] ['3', '6']
 // ['4', '0'] ['4', '1'] ['4', '2'] ['4', '3'] ['4', '4'] ['4', '5'] ['4', '6']
 // ['5', '0'] ['5', '1'] ['5', '2'] ['5', '3'] ['5', '4'] ['5', '5'] ['5', '6']
+
+
+
 let playerRed = "Red";
 let playerYellow = "Yellow";
 let currentPlayer = playerRed; //always start with red
@@ -52,9 +55,6 @@ function setCounter() {         //setCounter understands the starting positions 
         console.log(gameEnd + "Game Over")
         return;
     }
-
-    //info of that tile that has been clicked
-
     let coordinates = this.id.split(" "); //.split dividing strings into substrings, which puts them into an array
     console.log(this) 
     //telling me which mouse pointer div id I'm clicking on
@@ -62,11 +62,9 @@ function setCounter() {         //setCounter understands the starting positions 
     let c = parseInt(coordinates[1]);
     console.log (coordinates); 
     //telling me which array I've clicked
-
     // figure out which row the current column should be on
     r = startPosition[c]; 
     console.log(startPosition)
-
     if (r < 0) {
         return;
     }
@@ -158,12 +156,16 @@ function resetClick(event) {
     winnerDisplay.style.display = "None";
     clearBoard();
 }
-
-  const resetButton = document.getElementById("reset-button");
-resetButton.addEventListener("click", setGame);
+document.addEventListener('DOMContentLoaded', function () {
+    const resetButton = document.getElementById("reset-button");
+    resetButton.addEventListener("click", setGame);
+})
 
 module.exports = {
     setWinner,
     setGame,
+    checkWinner,
+    setCounter,
+    removeElementsByClass,
     
 }
