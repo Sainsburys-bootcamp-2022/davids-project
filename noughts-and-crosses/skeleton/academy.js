@@ -78,7 +78,7 @@ function resetGame() {
 // each position. Put a null in a position that hasn't been played yet.
 function getBoard() {
     console.log("getBoard was called");
-    return boardState; //this might be wrong. using boardstate for 'null' 
+    return boardState; 
 }
 
 if (typeof exports === 'object') {
@@ -90,6 +90,7 @@ if (typeof exports === 'object') {
         checkWinner,
         resetGame,
         getBoard,
+
     }
 } else {
     console.log("Running in Browser")
