@@ -7,10 +7,10 @@
 
 
 
-let playerRed = "Red";
-let playerYellow = "Yellow";
+let playerRed = "red";  //changed this from 'red' to 'the winner is' changed impure function so would like to understand how to write this in the setWinner function
+let playerYellow = "yellow";
 let currentPlayer = playerRed; //always start with red
-let gameEnd = false;
+let gameEnd
 let boardState;
 let rows = 6;
 let columns = 7;
@@ -22,7 +22,9 @@ window.onload = function () {    //works with 'this' to load html page. thanks s
 
 function setGame() {            //setGame creates the conditions for the game to begin. It uses variables to create a framework which builds an array for the game to progress.
     console.log(setGame, "Game is set")
-    boardState = []; //rather than writing out full individual array, boardState contains the initial array
+    gameEnd = false;
+    boardState = [];
+    console.log(boardState) //rather than writing out full individual array, boardState contains the initial array
     startPosition = [5, 5, 5, 5, 5, 5, 5]; //Ground level. Bottom of rows and columns for counters.
     //The array just keeps moving 'upwards' towards zero when a turn is taken.
     console.log(startPosition, "Bottom row"); //Reminder of ground level on console
@@ -135,24 +137,25 @@ function checkWinner(board) {         //checkWinner uses for loops and if statem
 
 function setWinner(statusWinner) {      //setWinner is called with regard to the checkWinner parameters being met. When checkWinner finds a winner, an if statement is used to understand if the winner is 'red' or 'yellow'
     let winnerName = document.getElementById("winner-name");  //lifted from connectors code for noughts and crosses
-    winnerName.innerText = statusWinner
+    winnerName.innerText = `The winner is ${statusWinner}`
     gameEnd = true;
     console.log(gameEnd, "Game Over");
 
 }
 
 //The reset button was clicked, call the game's reset function then reset the DOM.
-function resetClick(event) {
-    resetGame();
+function resetClick() {
+    // resetGame();
     const winnerName = document.getElementById("winner-name");
     winnerName.innerText = "";
     const winnerDisplay = document.getElementById("winner-display");
     winnerDisplay.style.display = "None";
-    clearBoard();
+    // clearBoard();
 }
 document.addEventListener('DOMContentLoaded', function () {
     const resetButton = document.getElementById("reset-button");
     resetButton.addEventListener("click", setGame);
+    resetButton.addEventListener("click", resetClick);
 })
 
 module.exports = {
