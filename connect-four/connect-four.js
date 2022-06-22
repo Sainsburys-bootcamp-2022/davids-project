@@ -132,8 +132,15 @@ function checkWinner(board) {         //checkWinner uses for loops and if statem
             }
         }
     }
+   
+    if (board.filter(parent => parent.filter(child => child === ' ').length > 0).length === 0) {    //parent and child .filter method
+
+        return "nobody";
+    }
+    
+    
     return false;
-}
+        }
 
 function setWinner(statusWinner) {      //setWinner is called with regard to the checkWinner parameters being met. When checkWinner finds a winner, an if statement is used to understand if the winner is 'red' or 'yellow'
     let winnerName = document.getElementById("winner-name");  //lifted from connectors code for noughts and crosses

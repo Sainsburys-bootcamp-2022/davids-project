@@ -1,7 +1,7 @@
 const functions = require("./connect-four")
 
-test('Testing a function and seeing what happens',() => {
-console.log(functions.resetGame)
+test('testing a function and seeing what happens',() => {
+// console.log(functions.resetGame)
 const expectedResult = undefined
 
 const result = functions.removeElementsByClass("tile")
@@ -9,8 +9,8 @@ const result = functions.removeElementsByClass("tile")
 expect(result).toEqual(expectedResult)
 })
 
-test(' ',() => {
-    console.log(functions.resetGame)
+test('testing to check a red win',() => {
+    // console.log(functions.resetGame)
     const board = 
             [[' ', ' ', ' ', ' ', ' ', ' ', ' '],
             [' ', ' ', ' ', ' ', ' ', ' ', ' '],
